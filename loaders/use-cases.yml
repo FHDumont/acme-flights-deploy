@@ -1,0 +1,34 @@
+useCases:
+  - {
+      "urlCheck": "/api/useCase/UC_SEARCH_FLIGHTS_BUSINESS/flight",
+      "urlRun": "/pages/search",
+      "waitTime": 1000,
+      "count": 25,
+    }
+  - {
+      "urlCheck": "/api/useCase/UC_CALL_MANY_TICKET_CLASS/api-manager",
+      "urlRun": "/api/ticketClasses",
+      "waitTime": 500,
+      "count": 2,
+    }
+  - {
+      "urlCheck": "/api/useCase/UC_AIRLINE_DETAIL_TIMEOUT/flight-services",
+      "urlRun": "/api/airportDetails/BSB",
+      "waitTime": 50,
+      "count": 5,
+    }
+  - {
+      "urlCheck": "/api/useCase/UC_ADD_TRACK_SLEEP/track-services",
+      "urlRun": "/api/searchBookFlight/no@email.com",
+      "waitTime": 2000,
+      "count": 2,
+    }    
+  - {
+      "urlCheck": "/api/useCase/UC_ERROR_INSERT_QUERY/track-services",
+      "urlRun": "/api/error-db/no@email.com",
+      "waitTime": 2000,
+      "count": 2,
+    }
+  - {
+      "urlCheck": "/api/useCase/UC_STOP_LOADER_BASIC/api-manager",
+    }    

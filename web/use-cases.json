@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Use case 01",
+    "description": "[ART] O robô irá criar 25 threads chamando a pesquisa de vôo pelo site e a API (searchForFlights) irá gerar retenção de 12 segundos na gravação do Log no MySQL, aumentando a quantidade de requisições e o tempo de resposta da BT. Este caso de uso irá se aplicar para os Tickets com classe Business.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_SEARCH_FLIGHTS_BUSINESS/flight",
+    "value": "ON",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 02",
+    "description": "[LOAD] Chamada da API /api/ticketClass diversas vezes com intervalo de 500ms entre as chamadas.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_CALL_MANY_TICKET_CLASS/api-manager",
+    "value": "500",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 03",
+    "description": "[ERROR & ANALYTICS] Todos checkouts com o parceiro \"Family Travel\" e primeira classe irão ocorrer erro, impossibilitando a venda e gerando prejuízo.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_CHECK_OUT_PARTNER_ERROR/ticket",
+    "value": "ON",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 04",
+    "description": "[ART] O Remote Service /api/external/mock/finance/check/ ficará com timeout de 15 segundos na resposta. Este serviço é chamado ao fazer checkout.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_MOCK_FINANCE_CHECK_TIMEOUT/finance-services",
+    "value": "15000",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 05",
+    "description": "[ART & LOAD] Chamada da API /api/airportDetails/BSB diversas vezes e timeout aleatório na API entre 500ms e 10s.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_AIRLINE_DETAIL_TIMEOUT/flight-services",
+    "value": "10000",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 06",
+    "description": "[ART] A gravação de track (log) terá timeout aleatório entre 1s e 5s para 25% das requisições.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_ADD_TRACK_SLEEP/track-services",
+    "value": "5000",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 07",
+    "description": "[ERROR] Execução da API /api/error-db/no@email.com. Nenhuma transação chama esta API, ela é exclusiva para gerar o erro.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_ERROR_INSERT_QUERY/track-services",
+    "value": "ON",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 08",
+    "description": "[ART] O api-manager gravará log 20 vezes com delay de 500ms para cada log, em todas requisições de searchForFlights com Ticket Class iguais a First Class. Este serviço é chamado ao fazer pesquisa de vôos.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_INSERT_MANY_LOGS/api-manager",
+    "value": "500",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 09",
+    "description": "[ART] A gravação de track (log) terá timeout aleatório entre 1s e 5s para 25% das requisições.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_TRACK_SLEEP/api-manager",
+    "value": "500",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Use case 10",
+    "description": "Gera exception ao buscar Log (Track no menu). O erro gerado é uma chamada POST em uma API GET gerando o erro 405.",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_EXCEPTION_CODE/api-manager",
+    "value": "ON",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  },
+  {
+    "title": "Controle do Robô Básico",
+    "description": "Parar o robô que simula navegação básica do usuário pelo Browser",
+    "buttonValue": "TURN ON",
+    "url": "/useCase/UC_STOP_LOADER_BASIC/api-manager",
+    "value": "ON",
+    "enabled": false,
+    "isLoading": false,
+    "error": ""
+  }
+]

@@ -1,0 +1,39 @@
+sortDevices: true
+sortLocations: true
+tests:
+  - usecase:
+    name: normal case
+    wait: 10
+    count: 8
+    pages: 
+      - { url: "http://af-web:8154/pages/home" }
+      - { url: "http://af-web:8154/auth/login" }
+      - { url: "http://af-web:8154/pages/search" }
+      - { url: "http://af-web:8154/pages/book" }
+      - { url: "http://af-web:8154/pages/track" }
+      - { url: "http://af-web:8154/auth/logout" }
+  - usecase:
+    name: just looking
+    wait: 5
+    count: 1
+    pages: 
+      - { url: "http://af-web:8154/pages/airline" }
+      - { url: "http://af-web:8154/pages/home" }
+      - { url: "http://af-web:8154/pages/airline" }
+      - { url: "http://af-web:8154/pages/search" }
+  - usecase:
+    name: book twice
+    wait: 5
+    count: 1
+    pages: 
+      - { url: "http://af-web:8154/auth/login" }    
+      - { url: "http://af-web:8154/pages/airline" }
+      - { url: "http://af-web:8154/pages/search" }
+      - { url: "http://af-web:8154/pages/home" }
+      - { url: "http://af-web:8154/pages/book" }
+  - usecase:
+    name: use case UC_ERROR_INSERT_QUERY
+    wait: 20
+    count: 1
+    pages: 
+      - { url: "http://af-web:8154/api/error-db/no@email.com" }

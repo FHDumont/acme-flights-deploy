@@ -1,0 +1,5 @@
+**/.DS_Store
+**/pipe
+**/*.zip
+**/*.log
+controller.env
