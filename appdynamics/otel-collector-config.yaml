@@ -1,0 +1,54 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+processors:
+  resource:
+    attributes:
+    - key: appdynamics.controller.account
+      action: upsert
+      value: "bb-pov"
+    - key: appdynamics.controller.host
+      action: upsert
+      value: "bb-pov.saas.appdynamics.com"
+    - key: appdynamics.controller.port
+      action: upsert
+      value: 443
+  batch:
+    # timeout: 30s
+    # send_batch_size: 90
+
+exporters:
+
+  logging:
+    loglevel: debug
+
+  jaeger:
+    endpoint: jaeger:14250
+    tls:
+      insecure: true
+
+  otlphttp:
+    endpoint: https://pdx-sls-agent-api.saas.appdynamics.com
+    headers: {"x-api-key": "456096fd6e2feda8f85848c529a3acd85c035cabfe02a9d7df65c501a9a20c8ea "}
+
+extensions:
+  health_check:
+  pprof:
+    endpoint: :1888
+  zpages:
+    endpoint: :55679
+
+service:
+  extensions: [pprof, zpages, health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [resource, batch]
+      exporters: [logging, jaeger, otlphttp]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging]
