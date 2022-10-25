@@ -145,7 +145,6 @@ services:
 networks:
   acme-flights-net:
     ipam:
-        driver: default
-        config:
-            - subnet: 1.1.1.1/16
-              gateway: 1.1.1.1
+      driver: default
+      config:
+          - subnet: 1.1.1.1/16
