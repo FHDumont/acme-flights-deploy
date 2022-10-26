@@ -12,19 +12,19 @@ useCases:
       "count": 2,
     }
   - {
-      "urlCheck": "/api/useCase/UC_AIRLINE_DETAIL_TIMEOUT/flight-services",
+      "urlCheck": "/api/useCase/UC_AIRLINE_DETAIL_TIMEOUT/flight",
       "urlRun": "/api/airportDetails/BSB",
       "waitTime": 50,
       "count": 5,
     }
   - {
-      "urlCheck": "/api/useCase/UC_ADD_TRACK_SLEEP/track-services",
+      "urlCheck": "/api/useCase/UC_ADD_TRACK_SLEEP/track",
       "urlRun": "/api/searchBookFlight/no@email.com",
       "waitTime": 2000,
       "count": 2,
     }    
   - {
-      "urlCheck": "/api/useCase/UC_ERROR_INSERT_QUERY/track-services",
+      "urlCheck": "/api/useCase/UC_ERROR_INSERT_QUERY/track",
       "urlRun": "/api/error-db/no@email.com",
       "waitTime": 2000,
       "count": 2,
