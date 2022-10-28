@@ -8,7 +8,6 @@ services:
 
   af-loader-basic:
     container_name: af-loader-basic
-    hostname: af-loader-basic
     restart: on-failure
     image: fernandodumont/acme-flights-loaders:3.0
     environment:
@@ -19,7 +18,6 @@ services:
 
   af-loader-use-case:
     container_name: af-loader-use-case
-    hostname: af-loader-use-case
     restart: on-failure
     image: fernandodumont/acme-flights-loaders:3.0
     environment:
@@ -35,7 +33,6 @@ services:
   af-web:
     image: fernandodumont/acme-flights-web:3.0
     container_name: af-web
-    hostname: af-web
     restart: on-failure
     expose:
       - 8154
@@ -55,7 +52,6 @@ services:
 
   af-api-manager:
     container_name: af-api-manager
-    hostname: af-api-manager
     restart: on-failure
     image: fernandodumont/acme-flights-java-services:3.0
     expose:
@@ -74,7 +70,6 @@ services:
 
   af-internal-services:
     container_name: af-internal-services
-    hostname: af-internal-services
     restart: on-failure
     image: fernandodumont/acme-flights-java-services:3.0
     env_file: ./appdynamics/controller.env
@@ -89,7 +84,6 @@ services:
 
   af-external-services:
     container_name: af-external-services
-    hostname: af-external-services
     restart: on-failure
     image: fernandodumont/acme-flights-java-services:3.0
     env_file: ./appdynamics/controller.env
@@ -110,7 +104,6 @@ services:
   af-mongo:
     image: fernandodumont/acme-flights-mongo:3.0
     container_name: af-mongo
-    hostname: af-mongo
     restart: on-failure
     expose:
       - 27017
@@ -120,7 +113,6 @@ services:
   mongo-express:
     image: mongo-express:latest
     container_name: mongo-express
-    hostname: mongo-express
     restart: on-failure
     expose:
       - 8081
@@ -132,7 +124,6 @@ services:
   af-mysql:
     image: fernandodumont/acme-flights-mysql:3.0
     container_name: af-mysql
-    hostname: af-mysql
     restart: on-failure
     expose:
       - 3306
@@ -142,7 +133,6 @@ services:
   af-ldap:
     image: bitnami/openldap:latest
     container_name: af-ldap
-    hostname: af-ldap
     restart: on-failure
     environment:
       - LDAP_ADMIN_USERNAME=admin
@@ -198,13 +188,11 @@ services:
   
   sap-services:
     container_name: sap-services
-    hostname: sap-services
     restart: on-failure
     image: fernandodumont/acme-flights-java-services:3.0
 
   finance-services:
     container_name: finance-services
-    hostname: finance-services
     restart: on-failure
     image: fernandodumont/acme-flights-java-services:3.0
 
@@ -214,7 +202,6 @@ services:
 
   java-agent-acme:
     container_name: java-agent-acme
-    hostname: java-agent-acme
     image: appdynamics/java-agent:latest
     volumes:
       - java-agent-acme:/opt/appdynamics
@@ -244,7 +231,6 @@ services:
 
   af-database-agent:
     container_name: af-database-agent
-    hostname: af-database-agent
     image: appdynamics/db-agent:latest
     env_file: ./appdynamics/controller.env
     environment:
