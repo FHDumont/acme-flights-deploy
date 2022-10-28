@@ -29,7 +29,7 @@ RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 COPY --from=builder /tmp /opt/appdynamics
 
 # LOG EXTENSION
-COPY --from=builder /builder/appdynamics-LogMonitor-extension-1.0-20221012/LogMonitor /opt/appdynamics/monitors
+COPY --from=builder /builder/appdynamics-LogMonitor-extension-1.0-20221012/LogMonitor /opt/appdynamics/monitors/LogMonitor
 
 ENV MACHINE_AGENT_HOME /opt/appdynamics
 
