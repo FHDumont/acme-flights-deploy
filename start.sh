@@ -2,6 +2,7 @@
 
 FILE=docker-compose.yml
 PULL=false
+BUILD=false
 
 for ARGUMENT in "$@"
 do
@@ -9,6 +10,8 @@ do
         FILE=docker-compose-clean.yml
     elif [ "$ARGUMENT" = "--pull" ]; then
         PULL=true
+    elif [ "$ARGUMENT" = "--build" ]; then
+        BUILD=true
     fi
 done
 
@@ -24,6 +27,10 @@ fi
 
 if [ $PULL == true ];then
     ( export DOCKER_BUILDKIT=1; export HOSTNAME=`hostname`; docker-compose -f ${FILE} pull )
+fi
+
+if [ $BUILD == true ];then
+    ( export DOCKER_BUILDKIT=1; export HOSTNAME=`hostname`; docker-compose -f ${FILE} build )
 fi
 
 

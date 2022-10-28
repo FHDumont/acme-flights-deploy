@@ -7,9 +7,11 @@ ARG APPD_AGENT_SHA256
 
 RUN apt-get update && apt-get install -y unzip
 
-# COPY ./machine-agent/machineagent-bundle-64bit-linux-22.9.0.3458.zip .
 ADD https://download-files.appdynamics.com/download-file/machine-bundle/22.9.0.3458/machineagent-bundle-64bit-linux-22.9.0.3458.zip .
 RUN unzip -oq ./machineagent-bundle-64bit-linux-22.9.0.3458.zip -d /tmp
+
+ADD https://github.com/jbsouthe/AppDynamics-LogMonitor-MachineAgent-Extension/releases/download/v1.0-release/appdynamics-LogMonitor-extension-1.0-20221012-deployment.zip .
+RUN unzip -oq ./appdynamics-LogMonitor-extension-1.0-20221012-deployment.zip -d .
 
 FROM openjdk:11-jre-slim
 
@@ -25,6 +27,9 @@ RUN apt-get autoremove --yes
 RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 COPY --from=builder /tmp /opt/appdynamics
+
+# LOG EXTENSION
+COPY --from=builder /builder/appdynamics-LogMonitor-extension-1.0-20221012/LogMonitor /opt/appdynamics/monitors
 
 ENV MACHINE_AGENT_HOME /opt/appdynamics
 
