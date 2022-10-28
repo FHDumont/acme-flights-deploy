@@ -222,6 +222,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - /:/hostroot:ro
+      - ./nginx/log:/opt/nginx/logs
     cap_add:
       - NET_ADMIN
       - NET_RAW
