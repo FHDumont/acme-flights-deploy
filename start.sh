@@ -26,14 +26,14 @@ fi
 ./pipe.sh &
 
 if [ $PULL == true ];then
-    ( export DOCKER_BUILDKIT=1; export HOSTNAME=`hostname`; docker-compose -f ${FILE} pull )
+    ( export DOCKER_BUILDKIT=1; export HOSTNAME=`hostname`; docker compose -f ${FILE} pull )
 fi
 
 if [ $BUILD == true ];then
-    ( export DOCKER_BUILDKIT=1; export HOSTNAME=`hostname`; docker-compose -f ${FILE} build )
+    ( export DOCKER_BUILDKIT=1; export HOSTNAME=`hostname`; docker compose -f ${FILE} build )
 fi
 
 
-( export DOCKER_BUILDKIT=1; export HOSTNAME=`hostname`; docker-compose -f ${FILE} up -d )
+( export DOCKER_BUILDKIT=1; export HOSTNAME=`hostname`; docker compose -f ${FILE} up -d )
 echo ""
 echo "============================================"

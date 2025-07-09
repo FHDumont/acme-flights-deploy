@@ -1,6 +1,6 @@
 #!/bin/bash
-$MACHINE_AGENT_HOME/updateAnalyticsAgent.sh $MACHINE_AGENT_HOME
-$MACHINE_AGENT_HOME/updateNetViz.sh $MACHINE_AGENT_HOME
+# $MACHINE_AGENT_HOME/updateAnalyticsAgent.sh $MACHINE_AGENT_HOME
+# $MACHINE_AGENT_HOME/updateNetViz.sh $MACHINE_AGENT_HOME
 
 MA_PROPERTIES=${APPDYNAMICS_MA_PROPERTIES}
 MA_PROPERTIES+=" -Dappdynamics.controller.hostName=${APPDYNAMICS_CONTROLLER_HOST_NAME}"
@@ -43,9 +43,11 @@ fi
 JAVA_OPTS=${MA_PROPERTIES}
 
 # Start Machine Agent
-${MACHINE_AGENT_HOME}/bin/machine-agent -d -p ${MACHINE_AGENT_HOME}/pidfile
+# ${MACHINE_AGENT_HOME}/bin/machine-agent -d -p ${MACHINE_AGENT_HOME}/pidfile
+${MACHINE_AGENT_HOME}/bin/machine-agent
+# ENTRYPOINT ["java", "-jar", "machineagent.jar"]
 
-cd ${MACHINE_AGENT_HOME}/extensions/NetVizExtension/agent
+# cd ${MACHINE_AGENT_HOME}/extensions/NetVizExtension/agent
 
 #start NetViz
-./bin/appd-netagent -c ./conf -l ./logs -r ./run
+# ./bin/appd-netagent -c ./conf -l ./logs -r ./run

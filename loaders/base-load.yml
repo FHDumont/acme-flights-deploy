@@ -4,7 +4,7 @@ tests:
   - usecase:
     name: normal case
     wait: 10
-    count: 8
+    count: 2
     pages: 
       - { url: "http://af-web:8154/pages/home" }
       - { url: "http://af-web:8154/auth/login" }

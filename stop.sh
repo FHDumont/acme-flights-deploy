@@ -13,7 +13,7 @@ echo "============================================"
 echo "Stopping docker-compose [${FILE}]"
 echo ""
 
-( export DOCKER_BUILDKIT=1; docker-compose -f ${FILE} down )
+( export DOCKER_BUILDKIT=1; docker compose -f ${FILE} down )
 
 PIPE=`ps -ef | grep -v color | grep -v grep | grep pipe.sh | awk '{print $2}'`
 if [[ ! -z $PIPE ]]; then

@@ -17,6 +17,9 @@ window["adrum-start-time"] = new Date().getTime();
   config.spa = { spa2: true, clearResTiming: false };
   config.isZonePromise = true;
   config.angular = true;
+
+  config.enableCoreWebVitals = true;
+  config.enableSpeedIndex = true;
 })(window["adrum-config"] || (window["adrum-config"] = {}));
 
 // CUSTOMIZAÇÕES LOADERS
